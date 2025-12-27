@@ -1,11 +1,12 @@
 using Azure.Identity;
 using Microsoft.Azure.Cosmos;
-using SimpleTodo.Api;
+using NotesAzureApp.Api;
 
 var credential = new DefaultAzureCredential();
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddSingleton<ListsRepository>();
+builder.Services.AddSingleton<NotesRepository>();
+builder.Services.AddSingleton<BlobStorageService>();
 builder.Services.AddSingleton(_ => new CosmosClient(builder.Configuration["AZURE_COSMOS_ENDPOINT"], credential, new CosmosClientOptions()
 {
     SerializerOptions = new CosmosSerializationOptions
@@ -37,7 +38,7 @@ app.UseStaticFiles(new StaticFileOptions{
     ServeUnknownFileTypes = true,
 });
 
-app.MapGroup("/lists")
-    .MapTodoApi()
+app.MapGroup("/notes")
+    .MapNotesApi()
     .WithOpenApi();
 app.Run();
