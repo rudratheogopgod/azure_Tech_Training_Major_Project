@@ -396,8 +396,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Rudra Agrawal**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@rudratheogopgod](https://github.com/rudratheogopgod)
+- Email: agrawalrudra710.com
 
 ## 🙏 Acknowledgments
 
