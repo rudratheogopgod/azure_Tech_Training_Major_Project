@@ -1,24 +1,21 @@
 import { Dispatch } from "react";
-import { TodoActions } from "../actions/common";
-import { TodoItem } from "./todoItem";
-import { TodoList } from "./todoList";
+import { NoteActions } from "../actions/common";
+import { Note } from "./note";
 
 export interface AppContext {
     state: ApplicationState
-    dispatch: Dispatch<TodoActions>
+    dispatch: Dispatch<NoteActions>
 }
 
 export interface ApplicationState {
-    lists?: TodoList[]
-    selectedList?: TodoList
-    selectedItem?: TodoItem
+    notes?: Note[]
+    selectedNote?: Note
 }
 
 export const getDefaultState = (): ApplicationState => {
     return {
-        lists: undefined,
-        selectedList: undefined,
-        selectedItem: undefined
+        notes: undefined,
+        selectedNote: undefined
     }
 }
 

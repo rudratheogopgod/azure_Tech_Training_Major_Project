@@ -1,115 +1,422 @@
+# Notes Azure App
+
+<div align="center">
+
+![Notes Azure App](https://img.shields.io/badge/Notes-Azure%20App-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+![.NET](https://img.shields.io/badge/.NET-8.0-purple?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.2-blue?style=for-the-badge)
+
+**A modern, cloud-native personal notes management application with document attachment support**
+
+[Features](#-features) • [Quick Start](#-quick-start) • [Architecture](#-architecture) • [Contributing](#-contributing) • [License](#-license)
+
+</div>
+
 ---
-page_type: sample
-languages:
-- azdeveloper
-- aspx-csharp
-- csharp
-- bicep
-- typescript
-- html
-products:
-- azure
-- azure-cosmos-db
-- azure-app-service
-- azure-monitor
-- azure-pipelines
-- aspnet-core
-urlFragment: todo-csharp-cosmos-sql
-name: React Web App with C# API and Cosmos DB for NoSQL on Azure
-description: A complete ToDo app with C# API and Azure Cosmos DB (NoSQL) for storage. Uses Azure Developer CLI (azd) to build, deploy, and monitor
----
-<!-- YAML front-matter schema: https://review.learn.microsoft.com/en-us/help/contribute/samples/process/onboarding?branch=main#supported-metadata-fields-for-readmemd -->
 
-# React Web App with C# API and Cosmos DB for NoSQL on Azure
+## 📋 Table of Contents
 
-[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=brightgreen&logo=github)](https://codespaces.new/azure-samples/todo-csharp-cosmos-sql)
-[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/azure-samples/todo-csharp-cosmos-sql)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Architecture](#-architecture)
+- [Prerequisites](#-prerequisites)
+- [Quick Start](#-quick-start)
+- [Local Development](#-local-development)
+- [Deployment](#-deployment)
+- [API Documentation](#-api-documentation)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Author](#-author)
 
-A blueprint for getting a React web app with a C# API and a MongoDB database running on Azure. The blueprint includes sample application code (a ToDo web app) which can be removed and replaced with your own application code. Add your own source code and leverage the Infrastructure as Code assets (written in Bicep) to get up and running quickly.
+## 🎯 Overview
 
-Let's jump in and get this up and running in Azure. When you are finished, you will have a fully functional web app deployed to the cloud. In later steps, you'll see how to setup a pipeline and monitor the application.
+**Notes Azure App** is a full-stack, cloud-native application that enables users to create, edit, and manage personal notes with document attachment capabilities. Built with modern industry best practices, it leverages Azure cloud services for scalable, secure, and reliable document storage and management.
 
-!["Screenshot of deployed ToDo app"](assets/web.png)
+### Key Highlights
 
-<sup>Screenshot of the deployed ToDo app</sup>
+- ✨ **Modern UI/UX** - Beautiful React interface with Fluent UI components
+- ☁️ **Cloud-Native** - Built on Azure PaaS services
+- 🔒 **Secure** - Managed Identity authentication, no hardcoded credentials
+- 🚀 **Scalable** - Auto-scaling capabilities with serverless options
+- 📦 **Containerized** - Docker support for consistent deployments
+- 🔄 **CI/CD Ready** - GitHub Actions pipeline included
+- 📱 **Responsive** - Works on desktop and tablet devices
 
-### Prerequisites
-> This template will create infrastructure and deploy code to Azure. If you don't have an Azure Subscription, you can sign up for a [free account here](https://azure.microsoft.com/free/). Make sure you have contributor role to the Azure subscription.
+## ✨ Features
 
+### Core Functionality
 
-The following prerequisites are required to use this application. Please ensure that you have them all installed locally.
+- ✅ **Create and Edit Notes** - Rich text note creation and editing
+- ✅ **Upload Documents** - Attach multiple files to notes (PDF, images, documents, etc.)
+- ✅ **View and Download Files** - Secure file viewing and downloading
+- ✅ **Search Notes** - Full-text search across notes and content
+- ✅ **Delete Notes** - Remove notes with cascade deletion of attachments
+- ✅ **Note Metadata** - Support for tags and timestamps
 
-- [Azure Developer CLI](https://aka.ms/azd-install)
-- [.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0) - for the API backend
-- [Node.js with npm (18.17.1+)](https://nodejs.org/) - for the Web frontend
+### Advanced Features
 
-### Quickstart
-To learn how to get started with any template, follow the steps in [this quickstart](https://learn.microsoft.com/azure/developer/azure-developer-cli/get-started?tabs=localinstall&pivots=programming-language-csharp) with this template (`Azure-Samples/todo-csharp-cosmos-sql`).
+- 🔍 **Full-Text Search** - Search across note titles and content
+- 📎 **Multiple Attachments** - Attach multiple files per note
+- 🏷️ **Tagging System** - Organize notes with custom tags
+- 📊 **File Metadata** - Track file size, type, and upload date
+- 🎨 **Modern UI** - Clean, intuitive interface with Fluent UI
+- 📱 **Responsive Design** - Works on various screen sizes
 
-This quickstart will show you how to authenticate on Azure, initialize using a template, provision infrastructure and deploy code on Azure via the following commands:
+## 🛠️ Technology Stack
+
+### Frontend
+- **React 18** - Modern UI framework
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool
+- **Fluent UI** - Microsoft design system
+- **React Router** - Client-side routing
+- **Axios** - HTTP client
+
+### Backend
+- **ASP.NET Core 8.0** - High-performance web framework
+- **C#** - Strongly-typed language
+- **Minimal APIs** - Lightweight endpoints
+- **Swagger/OpenAPI** - API documentation
+
+### Data & Storage
+- **Azure Cosmos DB (NoSQL)** - Document database for notes
+- **Azure Blob Storage** - Object storage for documents
+
+### Infrastructure
+- **Azure App Service** - Platform hosting
+- **Azure Key Vault** - Secrets management
+- **Azure Monitor** - Observability
+- **Docker** - Containerization
+- **NGINX** - Reverse proxy
+- **GitHub Actions** - CI/CD automation
+- **Bicep** - Infrastructure as Code
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    User Browser                          │
+└────────────────────┬────────────────────────────────────┘
+                     │ HTTPS
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│              Azure App Service (Web)                     │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │           NGINX Reverse Proxy                      │  │
+│  │  - Serves React static files                      │  │
+│  │  - Routes /api/* to backend                       │  │
+│  └──────────────────────────────────────────────────┘  │
+└────────────────────┬────────────────────────────────────┘
+                     │
+                     │ /api/*
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│            Azure App Service (API)                       │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │         ASP.NET Core 8.0 API                     │  │
+│  │  - RESTful endpoints                             │  │
+│  │  - Managed Identity authentication               │  │
+│  └──────────────────────────────────────────────────┘  │
+└─────┬───────────────────────────────────────┬──────────┘
+      │                                       │
+      │ Notes & Metadata                     │ Documents
+      ▼                                       ▼
+┌─────────────────────┐          ┌──────────────────────┐
+│  Azure Cosmos DB    │          │  Azure Blob Storage  │
+│  (NoSQL API)        │          │  (Container: docs)  │
+│  - Note documents    │          │  - File blobs        │
+│  - Attachment refs   │          │  - Secure access     │
+└─────────────────────┘          └──────────────────────┘
+```
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [Node.js 18+](https://nodejs.org/) (includes npm)
+- [Azure Developer CLI (azd)](https://aka.ms/azd-install) (optional, for Azure deployment)
+- [Docker](https://www.docker.com/get-started) (optional, for containerized deployment)
+- [Git](https://git-scm.com/)
+
+## 🚀 Quick Start
+
+### Option 1: Azure Deployment (Recommended)
+
+The easiest way to get started is using Azure Developer CLI:
 
 ```bash
-# Log in to azd. Only required once per-install.
+# Clone the repository
+git clone https://github.com/yourusername/notes-azure-app.git
+cd notes-azure-app
+
+# Login to Azure
 azd auth login
 
-# First-time project setup. Initialize a project in the current directory, using this template.
-azd init --template Azure-Samples/todo-csharp-cosmos-sql
-
-# Provision and deploy to Azure
+# Provision and deploy everything
 azd up
 ```
 
-### Application Architecture
+This will:
+- Create all Azure resources automatically
+- Deploy the application
+- Configure all connections
+- Provide you with the application URL
 
-This application utilizes the following Azure resources:
+### Option 2: Local Development
 
-- [**Azure App Services**](https://docs.microsoft.com/azure/app-service/) to host the Web frontend and API backend
-- [**Azure Cosmos DB for NoSQL**](https://docs.microsoft.com/learn/modules/intro-to-azure-cosmos-db-core-api/) for storage
-- [**Azure Monitor**](https://docs.microsoft.com/azure/azure-monitor/) for monitoring and logging
-- [**Azure Key Vault**](https://docs.microsoft.com/azure/key-vault/) for securing secrets
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/notes-azure-app.git
+cd notes-azure-app
 
-Here's a high level architecture diagram that illustrates these components. Notice that these are all contained within a single [resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), that will be created for you when you create the resources.
+# Set up Azure resources manually or use existing ones
+# Set environment variables
+export AZURE_COSMOS_ENDPOINT="https://your-cosmos.documents.azure.com:443/"
+export AZURE_COSMOS_DATABASE_NAME="Notes"
+export AZURE_BLOB_STORAGE_ENDPOINT="https://your-storage.blob.core.windows.net/"
+export AZURE_BLOB_STORAGE_CONTAINER_NAME="documents"
 
-!["Application architecture diagram"](assets/resources.png)
+# Login to Azure CLI
+az login
 
-### Cost of provisioning and deploying this template
-This template provisions resources to an Azure subscription that you will select upon provisioning them. Refer to the [Pricing calculator for Microsoft Azure](https://azure.microsoft.com/pricing/calculator/) to estimate the cost you might incur when this template is running on Azure and, if needed, update the included Azure resource definitions found in `infra/main.bicep` to suit your needs.
+# Run API (Terminal 1)
+cd src/api
+dotnet restore
+dotnet run
 
-### Application Code
+# Run Web (Terminal 2)
+cd src/web
+npm install
+npm run dev
+```
 
-This template is structured to follow the [Azure Developer CLI](https://aka.ms/azure-dev/overview). You can learn more about `azd` architecture in [the official documentation](https://learn.microsoft.com/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-create#understand-the-azd-architecture).
+Open http://localhost:5173 in your browser.
 
-### Next Steps
+## 💻 Local Development
 
-At this point, you have a complete application deployed on Azure. But there is much more that the Azure Developer CLI can do. These next steps will introduce you to additional commands that will make creating applications on Azure much easier. Using the Azure Developer CLI, you can setup your pipelines, monitor your application, test and debug locally.
+### Running the API
 
-> Note: Needs to manually install [setup-azd extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azd) for Azure DevOps (azdo).
+```bash
+cd src/api
+dotnet restore
+dotnet run
+```
 
-- [`azd pipeline config`](https://learn.microsoft.com/azure/developer/azure-developer-cli/configure-devops-pipeline?tabs=GitHub) - to configure a CI/CD pipeline (using GitHub Actions or Azure DevOps) to deploy your application whenever code is pushed to the main branch.
+The API will be available at:
+- HTTP: http://localhost:3100
+- HTTPS: https://localhost:3101
+- Swagger UI: http://localhost:3100
 
-- [`azd monitor`](https://learn.microsoft.com/azure/developer/azure-developer-cli/monitor-your-app) - to monitor the application and quickly navigate to the various Application Insights dashboards (e.g. overview, live metrics, logs)
+### Running the Web Frontend
 
-- [Run and Debug Locally](https://learn.microsoft.com/azure/developer/azure-developer-cli/debug?pivots=ide-vs-code) - using Visual Studio Code and the Azure Developer CLI extension
+```bash
+cd src/web
+npm install
+npm run dev
+```
 
-- [`azd down`](https://learn.microsoft.com/azure/developer/azure-developer-cli/reference#azd-down) - to delete all the Azure resources created with this template
+The web app will be available at: http://localhost:5173
 
-- [Enable optional features, like APIM](./OPTIONAL_FEATURES.md) - for enhanced backend API protection and observability
+### Using Docker
 
-### Additional `azd` commands
+```bash
+# Build and run with Docker Compose
+docker-compose up
 
-The Azure Developer CLI includes many other commands to help with your Azure development experience. You can view these commands at the terminal by running `azd help`. You can also view the full list of commands on our [Azure Developer CLI command](https://aka.ms/azure-dev/ref) page.
+# Or build individually
+docker build -t notes-api ./src/api
+docker build -t notes-web ./src/web
+```
 
+## 🚢 Deployment
 
-## Security
+### Azure Deployment
 
-### Roles
+```bash
+# Using Azure Developer CLI
+azd up
 
-This template creates a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for your app inside your Azure Active Directory tenant, and it is used to authenticate your app with Azure and other services that support Azure AD authentication like Cosmos DB and Key Vault via access policies and role assignments. You will see principalId referenced in the infrastructure as code files, that refers to the id of the currently logged in Azure Developer CLI user, which will be granted access policies and permissions to run the application locally. To view your managed identity in the Azure Portal, follow these [steps](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal).
+# Or manually
+azd provision  # Create infrastructure
+azd deploy    # Deploy application
+```
 
-### Key Vault
+### Docker Hub Deployment
 
-This template uses [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) to securely store secrets such as Application Insights connection strings. Key Vault is a cloud service for securely storing and accessing secrets (API keys, passwords, certificates, cryptographic keys) and makes it simple to give other Azure services access to them. The application uses managed identity to authenticate with Cosmos DB directly, eliminating the need to store database connection strings. As you continue developing your solution, you may add as many secrets to your Key Vault as you require.
+```bash
+# Build and push images
+docker build -t yourusername/notes-azure-app-api ./src/api
+docker build -t yourusername/notes-azure-app-web ./src/web
 
-## Reporting Issues and Feedback
+docker push yourusername/notes-azure-app-api
+docker push yourusername/notes-azure-app-web
+```
 
-If you have any feature requests, issues, or areas for improvement, please [file an issue](https://aka.ms/azure-dev/issues). To keep up-to-date, ask questions, or share suggestions, join our [GitHub Discussions](https://aka.ms/azure-dev/discussions). You may also contact us via AzDevTeam@microsoft.com.
+### CI/CD Pipeline
+
+The project includes a GitHub Actions workflow (`.github/workflows/ci-cd.yml`) that:
+
+1. Builds Docker images
+2. Runs tests
+3. Pushes to Docker Hub
+4. Deploys to Azure
+
+**Setup GitHub Secrets:**
+- `DOCKER_USERNAME` - Your Docker Hub username
+- `DOCKER_PASSWORD` - Your Docker Hub password/token
+- `AZURE_CREDENTIALS` - Azure service principal (JSON)
+
+## 📚 API Documentation
+
+### Base URL
+- Local: `http://localhost:3100`
+- Production: `https://your-api.azurewebsites.net`
+
+### Notes Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/notes` | Get all notes |
+| GET | `/notes/{id}` | Get specific note |
+| POST | `/notes` | Create new note |
+| PUT | `/notes/{id}` | Update note |
+| DELETE | `/notes/{id}` | Delete note |
+| GET | `/notes/search?query={term}` | Search notes |
+
+### Document Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/notes/{noteId}/documents` | Upload document |
+| GET | `/notes/{noteId}/documents/{documentId}/download` | Download document |
+| DELETE | `/notes/{noteId}/documents/{documentId}` | Delete document |
+
+### Example Requests
+
+**Create Note:**
+```bash
+curl -X POST http://localhost:3100/notes \
+  -H "Content-Type: application/json" \
+  -d '{"title": "My Note", "content": "Note content"}'
+```
+
+**Upload Document:**
+```bash
+curl -X POST http://localhost:3100/notes/{noteId}/documents \
+  -F "file=@document.pdf"
+```
+
+See `openapi.yaml` for complete API documentation.
+
+## 📁 Project Structure
+
+```
+notes-azure-app/
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml              # GitHub Actions CI/CD
+├── infra/                         # Infrastructure as Code
+│   ├── app/
+│   │   ├── api-appservice-avm.bicep
+│   │   ├── web-appservice-avm.bicep
+│   │   ├── db-avm.bicep          # Cosmos DB
+│   │   ├── blob-storage-avm.bicep # Blob Storage
+│   │   └── cosmos-role-assignment.bicep
+│   ├── main.bicep                 # Main infrastructure
+│   └── abbreviations.json
+├── src/
+│   ├── api/                       # C# Backend
+│   │   ├── Note.cs
+│   │   ├── NotesRepository.cs
+│   │   ├── BlobStorageService.cs
+│   │   ├── NotesEndpointsExtensions.cs
+│   │   ├── Program.cs
+│   │   └── Dockerfile
+│   └── web/                       # React Frontend
+│       ├── src/
+│       │   ├── components/
+│       │   ├── pages/
+│       │   ├── services/
+│       │   └── models/
+│       ├── nginx/
+│       │   └── nginx.conf
+│       └── Dockerfile
+├── docker-compose.yml             # Local development
+├── azure.yaml                     # Azure Developer CLI config
+└── README.md                      # This file
+```
+
+## 🤝 Contributing
+
+Contributions are welcome! This is an open-source project, and we encourage community participation.
+
+### How to Contribute
+
+1. **Fork the repository**
+2. **Create a feature branch**
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. **Make your changes**
+4. **Commit your changes**
+   ```bash
+   git commit -m 'Add some amazing feature'
+   ```
+5. **Push to the branch**
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+6. **Open a Pull Request**
+
+### Development Guidelines
+
+- Follow existing code style and patterns
+- Write clear commit messages
+- Add tests for new features
+- Update documentation as needed
+- Ensure code compiles without errors
+
+### Code of Conduct
+
+- Be respectful and inclusive
+- Welcome newcomers
+- Focus on constructive feedback
+- Help others learn and grow
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**Rudra Agrawal**
+
+- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: your.email@example.com
+
+## 🙏 Acknowledgments
+
+- Built with [Azure](https://azure.microsoft.com/) cloud services
+- UI components from [Fluent UI](https://developer.microsoft.com/en-us/fluentui)
+- Infrastructure templates from [Azure Developer CLI](https://aka.ms/azd)
+
+## 📞 Support
+
+- 📖 [Documentation](https://github.com/yourusername/notes-azure-app/wiki)
+- 🐛 [Report Issues](https://github.com/yourusername/notes-azure-app/issues)
+- 💬 [Discussions](https://github.com/yourusername/notes-azure-app/discussions)
+
+---
+
+<div align="center">
+
+**Made with ❤️ by Rudra Agrawal**
+
+⭐ Star this repo if you find it helpful!
+
+</div>

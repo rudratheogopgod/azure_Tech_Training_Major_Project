@@ -23,6 +23,7 @@ param logAnalyticsName string = ''
 param resourceGroupName string = ''
 param webServiceName string = ''
 param apimServiceName string = ''
+param storageAccountName string = ''
 
 @description('Flag to use Azure API Management to mediate the calls between the Web frontend and the backend API')
 param useAPIM bool = false
@@ -76,6 +77,8 @@ module api './app/api-appservice-avm.bicep' = {
       AZURE_KEY_VAULT_ENDPOINT: keyVault.outputs.uri
       AZURE_COSMOS_DATABASE_NAME: cosmos.outputs.databaseName
       AZURE_COSMOS_ENDPOINT: cosmos.outputs.endpoint
+      AZURE_BLOB_STORAGE_ENDPOINT: blobStorage.outputs.endpoint
+      AZURE_BLOB_STORAGE_CONTAINER_NAME: blobStorage.outputs.containerName
       API_ALLOW_ORIGINS: web.outputs.SERVICE_WEB_URI
       SCM_DO_BUILD_DURING_DEPLOYMENT: false
     }
@@ -132,6 +135,19 @@ module apiCosmosRoleAssignment './app/cosmos-role-assignment.bicep' = {
   params: {
     cosmosAccountName: cosmos.outputs.accountName
     apiPrincipalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+  }
+}
+
+// Azure Blob Storage for document storage
+module blobStorage './app/blob-storage-avm.bicep' = {
+  name: 'blob-storage'
+  scope: rg
+  params: {
+    accountName: !empty(storageAccountName) ? storageAccountName : '${abbrs.storageStorageAccounts}${resourceToken}'
+    location: location
+    tags: tags
+    containerName: 'documents'
+    principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
   }
 }
 
@@ -217,10 +233,10 @@ module apimApi 'br/public:avm/ptn/azd/apim-api:0.1.0' = if (useAPIM) {
   scope: rg
   params: {
     apiBackendUrl: api.outputs.SERVICE_API_URI
-    apiDescription: 'This is a simple Todo API'
-    apiDisplayName: 'Simple Todo API'
-    apiName: 'todo-api'
-    apiPath: 'todo'
+    apiDescription: 'Notes Azure App API for managing notes and documents'
+    apiDisplayName: 'Notes Azure App API'
+    apiName: 'notes-api'
+    apiPath: 'notes'
     name: useAPIM ? useAPIM ? apim.outputs.name : '' : ''
     webFrontendUrl: web.outputs.SERVICE_WEB_URI
     location: location

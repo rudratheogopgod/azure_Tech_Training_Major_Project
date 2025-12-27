@@ -11,7 +11,7 @@ param principalId string = ''
 @description('Optional. Default to Continuous. Describes the mode of backups. Periodic backup must be used if multiple write locations are used.')
 param backupPolicyType string = 'Continuous'
 
-var defaultDatabaseName = 'Todo'
+var defaultDatabaseName = 'Notes'
 var actualDatabaseName = !empty(databaseName) ? databaseName : defaultDatabaseName
 
 module cosmos 'br/public:avm/res/document-db/database-account:0.6.0' = {
@@ -37,11 +37,7 @@ module cosmos 'br/public:avm/res/document-db/database-account:0.6.0' = {
         name: actualDatabaseName
         containers: [
           {
-            name: 'TodoList'
-            paths: [ 'id' ]
-          }
-          {
-            name: 'TodoItem'
+            name: 'Note'
             paths: [ 'id' ]
           }
         ]
