@@ -399,6 +399,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - GitHub: [@rudratheogopgod](https://github.com/rudratheogopgod)
 - Email: agrawalrudra710@gmail.com
 
+**P. Hemanth**
+
+- GitHub: [@hemanth2233](https://github.com/hemanth2233)
+
 ## 🙏 Acknowledgments
 
 - Built with [Azure](https://azure.microsoft.com/) cloud services
@@ -415,7 +419,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ by Rudra Agrawal**
+**Made with ❤️ by Rudra Agrawal & P. Hemanth**
 
 ⭐ Star this repo if you find it helpful!
 
